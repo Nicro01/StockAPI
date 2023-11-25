@@ -41,8 +41,8 @@ Route::group(['middleware' => 'api'], function () {
     Route::post('/products', [ProductController::class, 'store']);
     Route::put('/products/{id}', [ProductController::class, 'update']);
     Route::delete('/products/{id}', [ProductController::class, 'destroy']);
-    Route::patch('/products/{id}/status', [ProductController::class, 'updateStatus']);
-    Route::patch('/products/{id}/quantity', [ProductController::class, 'updateQuantity']);
+    Route::put('/products/{id}/status', [ProductController::class, 'updateStatus']);
+    Route::put('/products/{id}/quantity', [ProductController::class, 'updateQuantity']);
 
     // Department Route
 

@@ -41,11 +41,17 @@ class UserController extends Controller
     {
         $credentials = $request->only('username', 'password');
 
-        if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
+        if (JWTAuth::attempt($credentials)) {
+            $user = JWTAuth::user();
+            $token = $user->createToken('UserToken')->accessToken;
 
-        return $this->respondWithToken($token);
+            return response()->json([
+                'user' => $user,
+                'token' => $token,
+            ]);
+        } else {
+            return response()->json(['error' => 'Unauthorised'], 401);
+        }
     }
 
     protected function respondWithToken($token)
