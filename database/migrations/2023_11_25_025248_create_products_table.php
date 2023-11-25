@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price');
             $table->integer('status');
+            $table->integer('quantity');
             $table->text('description');
             $table->string('image');
             $table->foreignId('department_id')->constrained();
