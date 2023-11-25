@@ -26,6 +26,10 @@ Route::apiResource('posts', PostController::class);
 
 Route::group(['middleware' => 'api'], function () {
 
+    // Register Route
+
+    Route::post('/register', [UserController::class, 'register']);
+
     // User Route
 
     Route::get('/users', [UserController::class, 'index']);
