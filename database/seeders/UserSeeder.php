@@ -21,5 +21,21 @@ class UserSeeder extends Seeder
         $admin_user->password = Hash::make('0000');
         $admin_user->role = 'admin';
         $admin_user->save();
+
+        $admin_user = new User();
+        $admin_user->name = 'Usuário';
+        $admin_user->email = 'nicolasmagalhaes2003@gmail.com';
+        $admin_user->username = 'user';
+        $admin_user->password = Hash::make('user');
+        $admin_user->role = 'user';
+        $admin_user->save();
+
+        $admin_user = new User();
+        $admin_user->name = 'Anderson';
+        $admin_user->email = 'anderson.iwazaki@unifil.br ';
+        $admin_user->username = 'anderson';
+        $admin_user->password = Hash::make('unifil2023');
+        $admin_user->role = 'admin';
+        $admin_user->save();
     }
 }
